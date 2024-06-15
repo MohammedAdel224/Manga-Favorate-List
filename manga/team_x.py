@@ -40,3 +40,7 @@ class TeamX(Manga):
             chapter_list = self._find_chapters_list(next_page)
             previous_chapter = chapter_list.find('li')
         return previous_chapter
+    
+    @staticmethod
+    def _get_chapter_href(chapter: element.Tag) -> str:
+        return chapter.find('a')['href']

@@ -32,3 +32,7 @@ class ThunderScans(Manga):
     @staticmethod
     def _find_previous_chapter(chapter: element.Tag) -> element.Tag | None:
         return chapter.find_next_sibling()
+    
+    @staticmethod
+    def _get_chapter_href(chapter: element.Tag) -> str:
+        return chapter.find('a')['href']

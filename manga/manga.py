@@ -19,7 +19,7 @@ class Manga(ABC):
     def request(self) -> None:
         try:
             client = httpx.Client(http2=True)
-            response = client.get(self.url, headers=self.headers, timeout=250)
+            response = client.get(self.url, headers=self.headers, timeout=250, follow_redirects=True)
         except Exception as exception:
             self.error = f'{exception}'
             self.__html = f'Error:\n{self.error}'
@@ -122,6 +122,10 @@ class Manga(ABC):
     def _find_previous_chapter(chapter: element.Tag) -> element.Tag:
         pass
     
+    @abstractmethod
+    def _get_chapter_href(chapter: element.Tag) -> str:
+        pass
+
     def get_new_chapters(self, last_chapter_read_number: float) -> pd.DataFrame:
         new_chapters = {'name':[], 'chapter_number':[], 'site':[]}
         if self.last_chapter.title: #If it has a title then there is an error
@@ -130,7 +134,7 @@ class Manga(ABC):
         chapter_number = self.get_chapter_number(chapter)
         if chapter_number < 0:
             return pd.DataFrame(new_chapters)
-        chapter_link = chapter.find('a')['href']
+        chapter_link = self._get_chapter_href(chapter)
         while chapter_number > last_chapter_read_number:
             new_chapters['name'].append(self.name)
             new_chapters['chapter_number'].append(f'=HYPERLINK("{chapter_link}", "{chapter_number}")')
@@ -139,7 +143,7 @@ class Manga(ABC):
             chapter = self._find_previous_chapter(chapter)
             if chapter:
                 chapter_number = self.get_chapter_number(chapter)
-                chapter_link = chapter.find('a')['href']
+                chapter_link = self._get_chapter_href(chapter)
             else:
                 break
         return pd.DataFrame(new_chapters)

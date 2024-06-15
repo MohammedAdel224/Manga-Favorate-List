@@ -18,7 +18,7 @@ def update_manga(manga: pd.Series) -> tuple[pd.Series, pd.Series]:
 
 ################################
 print('(01/19) Client authorizing...')
-client = pygsheets.authorize(service_account_file=r'pygsheet00-90bec150c5f4.json')
+client = pygsheets.authorize(service_account_file=r'key.json')
 
 print('(02/19) Manga sheet openning...')
 sheet = client.open('Manga')
@@ -34,8 +34,8 @@ manga_df['last_chapter_date'] = manga_df['last_chapter_date'].astype('datetime64
 
 print('(06/19) sources_df preparing...')
 sources_df = sources_worksheet.get_as_df()
+sources_df = sources_df[sources_df['site_name'] != "Gmanga"]
 sources_df['manga'] = sources_df.apply(lambda source: manga.create(source.manga_name, source.site_name, source.url), axis=1, result_type='expand')
-#sources_df['manga'].apply(lambda m: m.request())
 max_threads = 20
 number_of_sources = len(sources_df['manga'])
 for i in range(0, number_of_sources, max_threads):
@@ -46,8 +46,7 @@ for i in range(0, number_of_sources, max_threads):
         threads.append(thread)
     for thread in threads:
         thread.join()
-    print(f'{i+len(sources_df['manga'][i:i+max_threads])} link is done')
-
+    print(f'{i+len(sources_df["manga"][i:i+max_threads])} link is done')
 sources_df[['last_chapter', 'last_chapter_date', 'new_chapters']] = (pd.merge(sources_df, manga_df['last_read'], how='left', left_on='manga_id', right_index=True)
                                                                        .apply(lambda source: (source.manga.get_chapter_number(source.manga.last_chapter), 
                                                                                               source.manga.get_chapter_date(source.manga.last_chapter),
