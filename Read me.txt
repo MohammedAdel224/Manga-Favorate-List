@@ -5,20 +5,21 @@ Needed Libraries:
 - httpx
 
 Available Sites:
-      Name			|		Link			|	Notes
-------------------------|-----------------------------|---------------------
+      Name			|		Link				|	Notes
+---------------------------|---------------------------------------|---------------------
 - Area Manga		| https://www.areascans.net/	|
 - Area Scans		| https://ar.areascans.org/	|
-- Ares Manga		| https://fl-ares.com/		|
-- Azora Manga		| https://azoramoon.com/	|
+- Ares Manga		| https://fl-ares.com/			|
+- Azora Manga		| https://azoramoon.com/		|
 - Gmanga			| https://gmanga.app/		| This site stoped working after collecting manga's links but before writing the scraping code
-- Hijala			| https://hijala.com/		|
-- Mangalek		      | https://like-manga.net/	|
-- Mangalek2		      | https://lekmanga.com/		|
-- Manhua Scarlet	      | https://scarmanga.com/	|
+- Hijala			| https://hijala.com/			|
+- Mangalek		| https://like-manga.net/		|
+- Mangalek2		| https://lekmanga.com/		|
+- Manhua Scarlet	| https://scarmanga.com/		|
 - Swat Manga		| https://normoyun.com/		|
-- Team X			| https://teamxnovel.com/	|
-- Thunder Scans	      | https://ar-thunderepic.com/	|
+- Team X			| https://teamxnovel.com/		|
+- Thunder Scans	| https://ar-thunderepic.com/	|
+
 
 Limititions:
 - Can't Pass Cloudflare and CAPTCHA
