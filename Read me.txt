@@ -5,8 +5,8 @@ Needed Libraries:
 - httpx
 
 Available Sites:
-      Name		|		Link				|	Notes
-------------------------|---------------------------------------|---------------------
+      Name		|		Link		|	Notes
+------------------------|-------------------------------|---------------------
 - Area Manga		| https://www.areascans.net/	|
 - Area Scans		| https://ar.areascans.org/	|
 - Ares Manga		| https://fl-ares.com/		|
@@ -18,7 +18,7 @@ Available Sites:
 - Manhua Scarlet	| https://scarmanga.com/	|
 - Swat Manga		| https://normoyun.com/		|
 - Team X		| https://teamxnovel.com/	|
-- Thunder Scans	            | https://ar-thunderepic.com/	|
+- Thunder Scans	| https://ar-thunderepic.com/	|
 
 
 Limititions:
