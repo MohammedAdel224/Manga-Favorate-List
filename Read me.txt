@@ -21,6 +21,7 @@ Available Sites:
 - Thunder Scans		| https://ar-thunderepic.com/	|
 - Galaxy		| https://flixscans.net/	|
 - Dilar			| https://dilar.tube/		| Need to run JavaScript to load chapters
+- Manga Origin	| https://teammangaorigin.blogspot.com/	| 
 
 
 Limitations:
