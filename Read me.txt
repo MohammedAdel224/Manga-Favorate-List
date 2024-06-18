@@ -26,3 +26,4 @@ Available Sites:
 Limititions:
 - Can't Pass Cloudflare and CAPTCHA
 - Can't Run JavaScript before scraping
+- Can't update cookies automaticly
