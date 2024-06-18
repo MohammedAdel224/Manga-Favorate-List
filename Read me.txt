@@ -7,8 +7,8 @@ Needed Libraries:
 Available Sites:
       Name		|		Link		|	Notes
 ------------------------|-------------------------------|---------------------
-- Area Manga		| https://www.areascans.net/	|
-- Area Scans		| https://ar.areascans.org/	|
+- Area Manga		| https://www.areascans.net/	| Cookie need to update manualy
+- Area Scans		| https://ar.areascans.org/	| Cookie need to update manualy
 - Ares Manga		| https://fl-ares.com/		|
 - Azora Manga		| https://azoramoon.com/	|
 - Gmanga		| https://gmanga.app/		| This site stoped working after collecting manga's links but before writing the scraping code
@@ -20,6 +20,7 @@ Available Sites:
 - Team X		| https://teamxnovel.com/	|
 - Thunder Scans		| https://ar-thunderepic.com/	|
 - Galaxy		| https://flixscans.net/	|
+- Dilar		| https://dilar.tube/		| Need to run JavaScript to load chapters
 
 
 Limititions:
