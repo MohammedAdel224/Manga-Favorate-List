@@ -23,7 +23,7 @@ Available Sites:
 - Dilar			| https://dilar.tube/		| Need to run JavaScript to load chapters
 
 
-Limititions:
+Limitations:
 - Can't Pass Cloudflare and CAPTCHA
 - Can't Run JavaScript before scraping
 - Can't update cookies automaticly
