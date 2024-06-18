@@ -20,7 +20,7 @@ Available Sites:
 - Team X		| https://teamxnovel.com/	|
 - Thunder Scans		| https://ar-thunderepic.com/	|
 - Galaxy		| https://flixscans.net/	|
-- Dilar		| https://dilar.tube/		| Need to run JavaScript to load chapters
+- Dilar			| https://dilar.tube/		| Need to run JavaScript to load chapters
 
 
 Limititions:
