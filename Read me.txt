@@ -5,8 +5,8 @@ Needed Libraries:
 - httpx
 
 Available Sites:
-      Name		|		Link		|	Notes
-------------------------|-----------------------------------|---------------------
+      Name		|		Link			|	Notes
+------------------------|---------------------------------------|---------------------
 - Area Manga		| https://www.areascans.net/		| Cookie need to update manualy
 - Area Scans		| https://ar.areascans.org/		| Cookie need to update manualy
 - Ares Manga		| https://fl-ares.com/			|
