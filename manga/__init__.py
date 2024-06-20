@@ -11,6 +11,7 @@ from .ares_manga import AresManga
 from .galaxy import Galaxy
 from .dilar import Dilar
 from .manga_origin import MangaOrigin
+from .manga_rose import MangaRose
 
 
 sites = {'Azora Manga': AzoraManga, 
@@ -25,7 +26,8 @@ sites = {'Azora Manga': AzoraManga,
          'Hijala':  Hijala, 
          'Galaxy': Galaxy, 
          'Dilar': Dilar, 
-         'Manga Origin': MangaOrigin}
+         'Manga Origin': MangaOrigin, 
+         'Manga Rose': MangaRose}
 
 def create(name: str, site: str, url: str):
     return sites[site](name, url) 
