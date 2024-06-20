@@ -21,7 +21,8 @@ Team X		| https://teamxnovel.com/		      |
 Thunder Scans	| https://ar-thunderepic.com/		      |
 Galaxy		| https://flixscans.net/		      | The site change manga's path everyday. A function to get chapter date is needed
 Dilar			| https://dilar.tube/			      | Need to run JavaScript to load chapters
-Manga Origin	| https://teammangaorigin.blogspot.com/	| 
+Manga Origin	| https://teammangaorigin.blogspot.com/	|
+Manga Rose		| https://mangarose.net/			|
 
 
 Limitations:
