@@ -5,24 +5,23 @@ Needed Libraries:
 - httpx
 
 Available Sites:
-      Name		|		Link			            |	Notes
-------------------|-----------------------------------------|---------------------
-Area Manga		| https://www.areascans.net/		      | Cookie need to update manualy
-Area Scans		| https://ar.areascans.org/		      | Cookie need to update manualy
-Ares Manga		| https://fl-ares.com/			      |
-Azora Manga		| https://azoramoon.com/		      |
-Gmanga		| https://gmanga.app/			      | This site stoped working after collecting manga's links but before writing the scraping code
-Hijala		| https://hijala.com/			      |
-Mangalek		| https://like-manga.net/		      |
-Mangalek2		| https://lekmanga.com/			      |
-Manhua Scarlet	| https://scarmanga.com/		      |
-Swat Manga		| https://normoyun.com/			      |
-Team X		| https://teamxnovel.com/		      |
-Thunder Scans	| https://ar-thunderepic.com/		      |
-Galaxy		| https://flixscans.net/		      | The site change manga's path everyday. A function to get chapter date is needed
-Dilar			| https://dilar.tube/			      | Need to run JavaScript to load chapters
-Manga Origin	| https://teammangaorigin.blogspot.com/	|
-Manga Rose		| https://mangarose.net/			|
+id	|      Name		|		Link			            |	Notes
+------|-----------------|-----------------------------------------|---------------------
+1	| Mangalek		| https://like-manga.net/		      |
+2	| Ares Manga	| https://fl-ares.com/			      |
+3	| Manhua Scarlet	| https://scarmanga.com/		      |
+4	| Azora Manga	| https://azoramoon.com/		      |
+5	| Swat Manga	| https://normoyun.com/			      |
+6	| Team X		| https://teamxnovel.com/		      |
+7	| Gmanga		| https://gmanga.app/			      | This site stoped working after collecting manga's links but before writing the scraping code
+8	| Thunder Scans	| https://ar-thunderepic.com/		      |
+9	| Area Manga	| https://www.areascans.net/		      | Cookie need to update manualy
+10	| Hijala		| https://hijala.com/			      |
+11	| Area Scans	| https://ar.areascans.org/		      | Cookie need to update manualy
+12	| Galaxy		| https://flixscans.net/		      | The site change manga's path everyday. A function to get chapter date is needed
+13	| Dilar		| https://dilar.tube/			      | Need to run JavaScript to load chapters
+14	| Manga Origin	| https://teammangaorigin.blogspot.com/	|
+15	| Manga Rose	| https://mangarose.net/			|
 
 
 Limitations:
