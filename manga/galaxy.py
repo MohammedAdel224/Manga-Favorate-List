@@ -36,4 +36,4 @@ class Galaxy(Manga):
     
     @staticmethod
     def _get_chapter_href(chapter: element.Tag) -> str:
-        return chapter['href']
+        return 'https://flixscans.net' + chapter['href']
