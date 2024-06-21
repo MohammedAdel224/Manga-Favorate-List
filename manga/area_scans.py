@@ -8,8 +8,8 @@ headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/
            'Cookie': 'cf_clearance=e6lty.bpLXCjC9jcRDM3v5yvAC.QEbOSELom6hrFhl0-1714825098-1.0.1.1-EiFwSkDrPL2EZ4dyRxUfMRwL3q.WZbgOTrmarr5P9S9hVJG6iwZTtJKn5kqvK1eflY9TcPBPfNT3aBYFSZoAcQ; __eoi=ID=a7488dce439ed962:T=1714421086:RT=1714825106:S=AA-AfjYq7C8zS6OLHfsqutX--aev'}
 
 class AreaScans(Manga):
-    def __init__(self, name: str, url: str):
-        super().__init__(name, 'Area Scans', url, headers)
+    def __init__(self, name: str, url: str, last_chapter_read_number: float):
+        super().__init__(name, 'Area Scans', url, last_chapter_read_number, headers)
 
     def _find_chapters_list(self, soup: element.Tag) -> element.Tag | None:
         chapters_list_container = soup.find('div', id='chapterlist')

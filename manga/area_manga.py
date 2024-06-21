@@ -10,8 +10,8 @@ headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/
 
 
 class AreaManga(Manga):
-    def __init__(self, name: str, url: str):
-        super().__init__(name, 'Area Manga', url, headers)
+    def __init__(self, name: str, url: str, last_chapter_read_number: float):
+        super().__init__(name, 'Area Manga', url, last_chapter_read_number, headers)
 
     def _find_chapters_list(self, soup: element.Tag) -> element.Tag | None:
         chapters_list_container = soup.find('div', id='chapterlist')

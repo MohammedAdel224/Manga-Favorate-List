@@ -4,8 +4,8 @@ from .manga import Manga
 from .functions import get_number_from_text, date_from_Arabic
 
 class AzoraManga(Manga):
-    def __init__(self, name: str, url: str):
-        super().__init__(name, 'Azora Manga', url)
+    def __init__(self, name: str, url: str, last_chapter_read_number: float):
+        super().__init__(name, 'Azora Manga', url, last_chapter_read_number)
 
     def _find_chapters_list(self, soup: element.Tag) -> element.Tag | None:
         return soup.find('ul', class_='version-chap')

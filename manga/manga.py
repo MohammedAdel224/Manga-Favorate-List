@@ -6,13 +6,17 @@ from datetime import date
 
 
 class Manga(ABC):
-    def __init__(self, name: str, site: str, url: str, headers: dict | httpx.Headers = None):
+    def __init__(self, name: str, site: str, url: str, last_chapter_read_number: float, headers: dict | httpx.Headers = None):
         self.name: str = name
         self.site: str = site
         self.url: str = url
+        self.last_chapter_read_number: float = last_chapter_read_number
         self.__html: str | None = None
         self.__chapters_list: element.Tag | None = None
         self.__last_chapter: element.Tag | None = None
+        self.__last_chapter_number: float | None = None
+        self.__last_chapter_date: date | None = None
+        self.__unread_chapters: pd.DataFrame | None = None
         self.headers: dict | httpx.Headers = headers
         self.error: str | None = None
     
@@ -105,6 +109,15 @@ class Manga(ABC):
         print(f'{self.name}: Chapter number not found\n{self.url}')
         return -2
     ######################### End Chapter Number #########################
+
+    ######################### Start Last Chapter Number #########################
+    @property
+    def last_chapter_number(self) -> float:
+        if self.__last_chapter_number:
+            return self.__last_chapter_number
+        self.__last_chapter_number = self.get_chapter_number(self.last_chapter)
+        return self.__last_chapter_number
+    ######################### End Last Chapter Number #########################
     
     ######################### Start Chapter Date #########################
     @abstractmethod
@@ -117,6 +130,15 @@ class Manga(ABC):
         return self._find_chapter_date(chapter)
     ########################## End Chapter Date ##########################
 
+    ######################### Start Last Chapter Date #########################
+    @property
+    def last_chapter_date(self) -> float:
+        if self.__last_chapter_date:
+            return self.__last_chapter_date
+        self.__last_chapter_date = self.get_chapter_date(self.last_chapter)
+        return self.__last_chapter_date
+    ######################### End Last Chapter Date #########################
+
     ######################### Start New Chapters #########################
     @abstractmethod
     def _find_previous_chapter(chapter: element.Tag) -> element.Tag:
@@ -126,7 +148,7 @@ class Manga(ABC):
     def _get_chapter_href(chapter: element.Tag) -> str:
         pass
 
-    def get_new_chapters(self, last_chapter_read_number: float) -> pd.DataFrame:
+    def get_new_chapters(self) -> pd.DataFrame:
         new_chapters = {'name':[], 'chapter_number':[], 'site':[]}
         if self.last_chapter.title: #If it has a title then there is an error
             return pd.DataFrame(new_chapters)
@@ -135,7 +157,7 @@ class Manga(ABC):
         if chapter_number < 0:
             return pd.DataFrame(new_chapters)
         chapter_link = self._get_chapter_href(chapter)
-        while chapter_number > last_chapter_read_number:
+        while chapter_number > self.last_chapter_read_number:
             new_chapters['name'].append(self.name)
             new_chapters['chapter_number'].append(f'=HYPERLINK("{chapter_link}", "{chapter_number}")')
             new_chapters['site'].append(self.site)
@@ -148,3 +170,12 @@ class Manga(ABC):
                 break
         return pd.DataFrame(new_chapters)
     ########################## End New Chapters ##########################
+
+    ######################### Start Unread Chapters #########################
+    @property
+    def unread_chapters(self) -> pd.DataFrame:
+        if self.__unread_chapters:
+            return self.__unread_chapters
+        self.__unread_chapters = self.get_new_chapters()
+        return self.__unread_chapters
+    ######################### End Unread Chapters #########################

@@ -5,8 +5,8 @@ from .manga import Manga
 
 
 class TeamX(Manga):
-    def __init__(self, name: str, url: str):
-        super().__init__(name, 'Team X', url)
+    def __init__(self, name: str, url: str, last_chapter_read_number: float):
+        super().__init__(name, 'Team X', url, last_chapter_read_number)
 
     def _find_chapters_list(self, soup: element.Tag) -> element.Tag | None:
         chapters_list_container = soup.find('div', class_='ts-chl-collapsible-content')

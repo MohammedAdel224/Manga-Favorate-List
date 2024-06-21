@@ -5,8 +5,8 @@ from .functions import date_from_Arabic
 
 
 class Hijala(Manga):
-    def __init__(self, name: str, url: str):
-        super().__init__(name, 'Hijala', url)
+    def __init__(self, name: str, url: str, last_chapter_read_number: float):
+        super().__init__(name, 'Hijala', url, last_chapter_read_number)
 
     def _find_chapters_list(self, soup: element.Tag) -> element.Tag | None:
         chapters_list_container = soup.find('div', id='chapterlist')

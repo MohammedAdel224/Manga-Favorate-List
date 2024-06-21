@@ -29,11 +29,11 @@ sites = {'Azora Manga': AzoraManga,
          'Manga Origin': MangaOrigin, 
          'Manga Rose': MangaRose}
 
-def create(name: str, site: str, url: str):
-    return sites[site](name, url) 
+def create(name: str, site: str, url: str, last_chapter_read_number: float):
+    return sites[site](name, url, last_chapter_read_number) 
 
 if __name__ == '__main__':
-    manga = create('Wind Breaker', 'Hijala', 'https://hijala.com/wind-breaker/')
+    manga = create('Wind Breaker', 'Hijala', 'https://hijala.com/wind-breaker/', 490)
     manga.request()
     print(manga.last_chapter.encode('utf-8'))
     print(manga.get_chapter_number(manga.last_chapter))
