@@ -14,11 +14,6 @@ def update_manga(manga: pd.Series) -> tuple[pd.Series, pd.Series]:
         return manga.sources_last_chapter, manga.sources_last_chapter_date
     else:
         return manga.last_chapter, manga.last_chapter_date
-    
-def get_data(manga) -> None:
-    manga.last_chapter_number
-    manga.last_chapter_date
-    manga.unread_chapters
 ################################
 
 
@@ -42,16 +37,16 @@ if __name__ == "__main__":
 
     print('(06/19) sources_df preparing...')
     sources_df = sources_worksheet.get_as_df()
-    sources_df = sources_df[sources_df['site_name'] != "Gmanga"]
+    # sources_df = sources_df[sources_df['site_name'] != "Gmanga"]
     sources_df.drop(['id', 'site_id', 'path', 'random'], axis=1, inplace=True)
 
-    print('creating manga...')
+    print('\t(6.1) creating manga...')
     sources_df = pd.merge(sources_df, manga_df['last_read'], how='left', left_on='manga_id', right_index=True)
     manga_df.drop('last_read', axis=1, inplace=True)
     sources_df['manga'] = sources_df.apply(lambda source: manga.create(source.manga_name, source.site_name, source.url, source.last_read), axis=1, result_type='expand')
     sources_df.drop(['manga_name', 'site_name', 'url'], axis=1, inplace=True)
-    print('get manga source code...')
-    max_threads = 20
+    print('\t(6.2) get manga source code...')
+    max_threads = 30
     number_of_sources = len(sources_df['manga'])
     for i in range(0, number_of_sources, max_threads):
         threads = []
@@ -63,9 +58,7 @@ if __name__ == "__main__":
             thread.join()
         print(f'{i+len(sources_df["manga"][i:i+max_threads])} link is done')
 
-    print('get manga data...')
-    with Pool() as P:
-        P.map(get_data, sources_df['manga'])
+    print('\t(6.3) get manga data...')
     sources_df[['last_chapter', 'last_chapter_date', 'new_chapters']] = sources_df.apply(lambda source: (source.manga.last_chapter_number, 
                                                                                                         source.manga.last_chapter_date,
                                                                                                         source.manga.unread_chapters), 

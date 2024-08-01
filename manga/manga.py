@@ -19,9 +19,13 @@ class Manga(ABC):
         self.__unread_chapters: pd.DataFrame | None = None
         self.headers: dict | httpx.Headers = headers
         self.error: str | None = None
-    
+
+    def _change_url(self) -> None:
+        pass
+
     def request(self) -> None:
         try:
+            self._change_url()
             client = httpx.Client(http2=True)
             response = client.get(self.url, headers=self.headers, timeout=250, follow_redirects=True)
         except Exception as exception:
@@ -32,6 +36,8 @@ class Manga(ABC):
         else:
             if response.status_code == 200:
                 self.__html = response.text
+                self.__last_chapter_date = self.last_chapter_date
+                self.__unread_chapters = self.unread_chapters
             else:
                 self.error = f'{response}'
                 self.__html = f'Error:\n{self.error}'
@@ -113,9 +119,8 @@ class Manga(ABC):
     ######################### Start Last Chapter Number #########################
     @property
     def last_chapter_number(self) -> float:
-        if self.__last_chapter_number:
-            return self.__last_chapter_number
-        self.__last_chapter_number = self.get_chapter_number(self.last_chapter)
+        if not self.__last_chapter_number:
+            self.__last_chapter_number = self.get_chapter_number(self.last_chapter)
         return self.__last_chapter_number
     ######################### End Last Chapter Number #########################
     
@@ -133,9 +138,8 @@ class Manga(ABC):
     ######################### Start Last Chapter Date #########################
     @property
     def last_chapter_date(self) -> float:
-        if self.__last_chapter_date:
-            return self.__last_chapter_date
-        self.__last_chapter_date = self.get_chapter_date(self.last_chapter)
+        if not self.__last_chapter_date:
+            self.__last_chapter_date = self.get_chapter_date(self.last_chapter)
         return self.__last_chapter_date
     ######################### End Last Chapter Date #########################
 
@@ -153,7 +157,7 @@ class Manga(ABC):
         if self.last_chapter.title: #If it has a title then there is an error
             return pd.DataFrame(new_chapters)
         chapter = self.last_chapter
-        chapter_number = self.get_chapter_number(chapter)
+        chapter_number = self.last_chapter_number
         if chapter_number < 0:
             return pd.DataFrame(new_chapters)
         chapter_link = self._get_chapter_href(chapter)
@@ -174,8 +178,7 @@ class Manga(ABC):
     ######################### Start Unread Chapters #########################
     @property
     def unread_chapters(self) -> pd.DataFrame:
-        if self.__unread_chapters:
-            return self.__unread_chapters
-        self.__unread_chapters = self.get_new_chapters()
+        if self.__unread_chapters is None:
+            self.__unread_chapters = self.get_new_chapters()
         return self.__unread_chapters
     ######################### End Unread Chapters #########################

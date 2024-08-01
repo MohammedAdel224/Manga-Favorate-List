@@ -1,4 +1,5 @@
-from bs4 import element
+import httpx
+from bs4 import element, BeautifulSoup
 from datetime import date
 from .manga import Manga
 from .functions import get_number_from_text
@@ -10,6 +11,18 @@ class Galaxy(Manga):
     def __init__(self, name: str, url: str, last_chapter_read_number: float):
         super().__init__(name, 'Galaxy', url, last_chapter_read_number, headers)
 
+    def _change_url(self) -> None:
+        client = httpx.Client(http2=True)
+        response = client.get(self.url, headers=self.headers, timeout=250, follow_redirects=True)
+        if response.status_code == 200:
+            soup = BeautifulSoup(response.text, "html.parser")
+            manga_div = soup.find("div", class_="px-1 font-poppins line-clamp-1 hover:opacity-70")
+            if manga_div:
+                manga_a = manga_div.find("a")
+                if manga_a:
+                    manga_path = manga_a["href"]
+                    self.url = self.url.split("/search?")[0] + manga_path
+    
     def _find_chapters_list(self, soup: element.Tag) -> element.Tag | None:
         return soup.find('div', class_='md:grid-cols-2')
 
