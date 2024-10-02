@@ -3,7 +3,7 @@ from .manhua_scarlet import ManhuaScarlet
 from .mangalek import Mangalek
 from .swat_manga import SwatManga
 from .team_x import TeamX
-from .thunder_scans import ThunderScans
+from .lava_scans import LavaScans
 from .area_manga import AreaManga
 from .hijala import Hijala
 from .area_scans import AreaScans
@@ -20,7 +20,7 @@ sites = {'Azora Manga': AzoraManga,
          'Mangalek': Mangalek,
          'Swat Manga': SwatManga,
          'Team X': TeamX,
-         'Thunder Scans': ThunderScans,
+         'Lava Scans': LavaScans,
          'Area Manga': AreaManga,
          'Area Scans': AreaScans,
          'Hijala':  Hijala, 

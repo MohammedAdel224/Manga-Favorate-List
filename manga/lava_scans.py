@@ -4,9 +4,9 @@ from .manga import Manga
 from .functions import date_from_Arabic
 
 
-class ThunderScans(Manga):
+class LavaScans(Manga):
     def __init__(self, name: str, url: str, last_chapter_read_number: float):
-        super().__init__(name, 'Thunder Scans', url, last_chapter_read_number)
+        super().__init__(name, 'Lava Scans', url, last_chapter_read_number)
 
     def _find_chapters_list(self, soup: element.Tag) -> element.Tag | None:
         chapters_list_container = soup.find('div', class_='eplister')

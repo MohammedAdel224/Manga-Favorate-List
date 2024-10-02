@@ -14,7 +14,7 @@ ID	| Name			| URL									| Notes
 5	| Swat Manga	| https://healteer.com/					|
 6	| Team X		| https://teamoney.site/				|
 7	| Gmanga		| https://gmanga.app/					| This site stoped working after collecting manga's links but before writing the scraping code
-8	| Thunder Scans	| https://thunderscans.com/				| This site stoped working
+8	| Lava Scans	| https://lavascans.com/				| This site stoped working
 9	| Area Manga	| https://www.areascans.net/			| Cookie need to update manualy
 10	| Hijala		| https://hijala.com/					|
 11	| Area Scans	| https://ar.areascans.org/				| Cookie need to update manualy
