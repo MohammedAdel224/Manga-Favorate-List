@@ -18,7 +18,7 @@ ID	| Name			| URL									| Notes
 9	| Area Manga	| https://www.areascans.net/			| Cookie need to update manualy
 10	| Hijala		| https://hijala.com/					|
 11	| Area Scans	| https://ar.areascans.org/				| Cookie need to update manualy
-12	| Galaxy		| https://snowscans.com/				|
+12	| Galaxy		| https://gxcomic.xyz/				    |
 13	| Dilar			| https://dilar.tube/					| Need to run JavaScript to load chapters
 14	| Manga Origin	| https://teammangaorigin.blogspot.com/	|
 15	| Manga Rose	| https://mangarose.net/				|
