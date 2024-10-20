@@ -1,5 +1,5 @@
 import re
-from datetime import date
+from datetime import date, timedelta
 
 
 def get_number_from_text(text: str) -> float | None:
@@ -28,3 +28,20 @@ arabic_months = {"يناير": 1,
 def date_from_Arabic(Date):
     month, day, year = Date.string.replace(',', '').split()
     return date(int(year), arabic_months[month], int(day))
+
+def period_to_date(Date: str):
+    quantity, time_unit, ago = Date.split()
+
+    if time_unit == "days":
+        delta = timedelta(days=int(quantity))
+    elif time_unit == "weeks":
+        delta = timedelta(weeks=int(quantity))
+    elif time_unit == "hours":
+        delta = timedelta(hours=int(quantity))
+    elif time_unit == "minutes":
+        delta = timedelta(minutes=int(quantity))
+    elif time_unit == "seconds":
+        delta = timedelta(seconds=int(quantity))
+    else:
+        return date.today()
+    return date.today() - delta
