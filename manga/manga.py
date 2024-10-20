@@ -31,7 +31,7 @@ class Manga(ABC):
         except Exception as exception:
             self.error = f'{exception}'
             self.__html = f'Error:\n{self.error}'
-            print(self.__html, '\n', self.url, '\n')
+            print(f'{self.__html}\n{self.url}\n')
         else:
             if response.status_code == 200:
                 self.__html = response.text
@@ -40,7 +40,7 @@ class Manga(ABC):
             else:
                 self.error = f'{response}'
                 self.__html = f'Error:\n{self.error}'
-                print(self.__html, '\n', self.url, '\n')
+                print(f'{self.__html}\n{self.url}\n')
 
     
     @property
