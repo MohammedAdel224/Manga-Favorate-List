@@ -9,7 +9,7 @@ ID	| Name			| URL									| Notes
 ----|---------------|---------------------------------------|------
 1	| Mangalek		| https://like-manga.net/				|
 2	| Ares Manga	| https://fl-ares.com/					|
-3	| Manhua Scarlet| https://scarmanga.com/				|
+3	| Manhua Scarlet| https://scarmanga.com/				| This site stoped working and moved some mangas to Ares Mange (ID: 2)
 4	| Azora Manga	| https://azoramoon.com/				|
 5	| Swat Manga	| https://swatscans.com/				|
 6	| Team X		| https://teamoney.site/				|
